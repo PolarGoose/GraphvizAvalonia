@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <Authors>PolarGoose</Authors>
+    <Description>An AvaloniaUI control that displays an interactive graph. It uses Graphviz to create a layout.</Description>
+    <PackageProjectUrl>https://github.com/PolarGoose/GraphvizAvalonia</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>Graphviz; dot; graph; Avalonia</PackageTags>
+    <PackageOutputPath>$(BuildFolder)</PackageOutputPath>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Avalonia" Version="11.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

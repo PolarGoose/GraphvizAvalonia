@@ -1,0 +1,57 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Example"
+        xmlns:graphVizAvalonia="using:GraphvizAvalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Example.MainWindow"
+        x:DataType="local:MainWindowModel"
+        Title="Example">
+  <Grid RowDefinitions="Auto,Auto,*">
+    <StackPanel Orientation="Horizontal"
+                Margin="8"
+                Spacing="8">
+
+      <TextBlock Text="Graph sample:"
+                 VerticalAlignment="Center"/>
+      <ComboBox x:Name="GraphSamplesComboBox"
+                Width="160"
+                ItemsSource="{Binding GraphSamples}"
+                SelectedIndex="0"
+                SelectionChanged="RedrawGraph" />
+
+      <TextBlock Text="Layout engine:"
+                 Margin="16,0,0,0"
+                 VerticalAlignment="Center"/>
+      <ComboBox x:Name="LayoutEngineComboBox"
+                Width="160"
+                ItemsSource="{Binding LayoutEngine}"
+                SelectedIndex="0"
+                SelectionChanged="RedrawGraph" />
+
+      <Button Content="Reset zoom"
+              Margin="8,0,0,0"
+              VerticalAlignment="Center"
+              Click="ResetZoom"/>
+    </StackPanel>
+
+    <Border Grid.Row="1" Height="1" Background="LightGray" Margin="0,0,0,4"/>
+
+    <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+      <ZoomBorder x:Name="ZoomBorder" ZoomSpeed="1.05">
+        <graphVizAvalonia:GraphCanvas Background="White" x:Name="GraphCanvas">
+          <graphVizAvalonia:GraphCanvas.DataTemplates>
+            <DataTemplate DataType="{x:Type local:NodeModel}">
+              <TextBox Text="{Binding Name, Mode=OneWay}" Background="White"
+                       Padding="4" IsReadOnly="True" Width="100" Height="40" TextAlignment="Center"/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type local:SubgraphModel}">
+              <Rectangle Fill="{Binding BackgroundColor}" Stroke="{Binding StrokeColor}" StrokeThickness="2" />
+            </DataTemplate>
+          </graphVizAvalonia:GraphCanvas.DataTemplates>
+        </graphVizAvalonia:GraphCanvas>
+      </ZoomBorder>
+    </ScrollViewer>
+  </Grid>
+</Window>

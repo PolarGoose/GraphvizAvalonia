@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <ProjectRoot>$(MSBuildThisFileDirectory)..\</ProjectRoot>
+    <BuildFolder>$(ProjectRoot)build\</BuildFolder>
+    <OutputPath>$(BuildFolder)$(Configuration)\$(MSBuildProjectName)</OutputPath>
+    <BaseIntermediateOutputPath>$(BuildFolder)obj\$(MSBuildProjectName)\$(Configuration)\</BaseIntermediateOutputPath>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <WarningLevel>5</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+</Project>
