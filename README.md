@@ -5,6 +5,8 @@ It is an alternative to:
 * [Graphviz4Net](https://github.com/frblondin/Graphviz4Net)
 * [AvaloniaGraphControl](https://github.com/Oaz/AvaloniaGraphControl)
 
+Nuget package: [GraphvizAvalonia](https://www.nuget.org/packages/GraphvizAvalonia/)
+
 # Features
 * Uses [Graphviz](https://graphviz.org/) to create layout.
 * Support all [Graphviz layout engines](https://graphviz.org/docs/layouts/).

@@ -21,12 +21,12 @@
 
   <!-- Download Graphviz and unpack it -->
   <Target Name="DownloadGraphviz" BeforeTargets="BeforeBuild" Condition="!Exists('$(BuildFolder)/Graphviz.zip')">
-    <DownloadFile SourceUrl="https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/11.0.0/windows_10_cmake_Release_Graphviz-11.0.0-win64.zip" DestinationFolder="$(BuildFolder)" DestinationFileName="Graphviz.zip" />
+    <DownloadFile SourceUrl="https://gitlab.com/api/v4/projects/4207231/packages/generic/graphviz-releases/14.0.4/windows_10_cmake_Release_Graphviz-14.0.4-win64.zip" DestinationFolder="$(BuildFolder)" DestinationFileName="Graphviz.zip" />
     <Unzip SourceFiles="$(BuildFolder)Graphviz.zip" DestinationFolder="$(BuildFolder)" />
   </Target>
-  <Target Name="CopyGraphvizBinariesToOutputFolder" AfterTargets="DownloadGraphviz" BeforeTargets="BeforeBuild" Condition="!Exists('$(OutputPath)/config6')">
+  <Target Name="CopyGraphvizBinariesToOutputFolder" AfterTargets="DownloadGraphviz" BeforeTargets="BeforeBuild" Condition="!Exists('$(OutputPath)/config8')">
     <ItemGroup>
-      <GraphvizBinaries Include="$(BuildFolder)/Graphviz-*-win64/bin/*.dll;$(BuildFolder)/Graphviz-*-win64/bin/config6" />
+      <GraphvizBinaries Include="$(BuildFolder)/Graphviz-*-win64/bin/*.dll;$(BuildFolder)/Graphviz-*-win64/bin/config8" />
     </ItemGroup>
     <Copy SourceFiles="@(GraphvizBinaries)" DestinationFolder="$(OutputPath)/GraphvizBinaries" />
   </Target>
